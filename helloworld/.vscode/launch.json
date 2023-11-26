@@ -1,0 +1,12 @@
+{
+  "name": "Chalice: Local",
+  "type": "python",
+  "request": "launch",
+  "program": "${workspaceFolder}/venv/bin/chalice",
+  "args": [
+      "local",
+      "--no-autoreload",
+  ],
+  "console": "integratedTerminal",
+  "justMyCode": true
+}

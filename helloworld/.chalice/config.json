@@ -1,0 +1,47 @@
+{
+  "version": "2.0",
+  "app_name": "helloworld123",
+  "name": "Python: Chalice",
+  "type": "python",
+  "request": "launch",
+  "module": "app", 
+  "env": {
+    "AWS_DEFAULT_REGION": "us-east-1" 
+  },
+  "args": [
+    "local"
+  ],
+  "console": "integratedTerminal",
+  "justMyCode": true,
+  "environment_variables": {
+    "LOG_LEVEL": "INFO",
+    "NURO_CA_CERT": "/opt/lib/certs/nuroPrivateCA.crt",
+    "CORESYS_CLIENT_CERT": "/opt/lib/certs/coreSys.crt",
+    "CORESYS_CLIENT_KEY": "/opt/lib/certs/coreSys.key",
+    "ACCOUNTING_API_PATH_BILLING": "/accounting/billing/billingRefer/",
+    "ACCOUNTING_API_PATH_BILLING_DETAIL": "/accounting/billing/billingDetailRefer/",
+    "ACCOUNTING_API_PATH_CASHBACK": "/accounting/cashback/cashbackRefer/",
+    "ACCOUNTING_API_PATH_REGISTER_CASHBACK_RECEIPT": "/accounting/cashback/cashbackReceiptRegist/",
+    "ACCOUNTING_API_PATH_CASHBACK_RECEIPT": "/accounting/cashback/cashbackReceiptRefer/",
+    "ACCOUNTING_API_PATH_CONSTRUCTION_COST_REFER": "/accounting/installment/constructionCostRefer/",
+    "ACCOUNTING_API_PATH_FACILITY_COST_REFER_BILLING_LATEST": "/accounting/facility/facilityCostReferBillingLatest/",
+    "ACCOUNTING_API_PATH_REGISTER_BILLING_INDIVIDUAL_SERVICE": "/accounting/billing/billingIndividualServiceRegist/"
+  },
+  "stages": {
+    "dev": {
+      "api_gateway_stage": "api"
+    },
+    "local": {
+      "api_gateway_stage": "api",
+      "environment_variables": {
+        "SWAGGER_UI": "true",
+        "LOG_LEVEL": "DEBUG",
+        "SERVER_HOSTNAME": "http://localhost:8000",
+        "ACCOUNTING_API_HOSTNAME": "http://localhost:8080",
+        "NURO_CA_CERT": "",
+        "CORESYS_CLIENT_CERT": "",
+        "CORESYS_CLIENT_KEY": ""
+      }
+  }
+}
+}
