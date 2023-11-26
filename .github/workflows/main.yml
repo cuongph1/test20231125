@@ -1,0 +1,21 @@
+name: CI/CD test102
+# name: CI/CD <deploy env name>
+
+on:
+  push:
+    branches:
+      # - branch name pattern
+      - 'feature/chalice'
+
+jobs:
+  # <deploy env name>:
+  test102:
+    uses: ./.github/workflows/cicd-chalice.yml
+    with:
+      # please set environment variables
+      stage-name: poc
+      env-name: test102
+      chalice-stage: poc
+    secrets:
+      deploy-role-arn: ${{ secrets.AWS_ROLE_ARN_POC }}
+      codeartifact-role-arn: ${{ secrets.AWS_ROLE_ARN_POC }}
