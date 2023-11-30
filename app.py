@@ -14,7 +14,6 @@ sqs_queue_url = "testqueue"
 
 @app.on_sqs_message(queue=sqs_queue_url)
 def index(event):
-    # Xử lý sự kiện của SQS ở đây
     for record in event:
         bodyjson = json.loads(record.body)
         print(f"Received bodyjson: {bodyjson}")
