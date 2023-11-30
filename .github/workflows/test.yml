@@ -26,23 +26,25 @@ jobs:
         run: |
           pip install chalice
 
-      - name: Build Chalice Project
-        run: chalice local
+      - name: chalice deploy
+        uses: jayef0/chalice-extended-action@release-v0.2.1
+        env:
+          WORKING_DIRECTORY: test20231125
+          REQUIREMENTS_FILE: requirements.txt
+          OPERATION: deploy
+          STAGE: dev
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: us-east-1
 
-      - name: Test Chalice Project
-        run: chalice test
+      - name: Build Chalice Project
+        run: chalice deploy
+
+#      - name: Test Chalice Project
+#        run: chalice test
 #    - name: Install Dependencies
 #      run: |
 #        python -m pip install --upgrade pip
 #        pip install -r requirements.txt
 
-#    - name: chalice deploy
-#      uses: jayef0/chalice-extended-action@release-v0.2.1
-#      env:
-#        WORKING_DIRECTORY: test20231125
-#        REQUIREMENTS_FILE: requirements.txt
-#        OPERATION: deploy
-#        STAGE: dev
-#        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#        AWS_DEFAULT_REGION: us-east-1
+
