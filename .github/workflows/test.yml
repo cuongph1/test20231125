@@ -27,7 +27,7 @@ jobs:
           pip install chalice
 
       - name: Build Chalice Project
-        run: chalice deploy
+        run: chalice local
 
       - name: Test Chalice Project
         run: chalice test
