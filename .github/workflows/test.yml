@@ -17,6 +17,7 @@ jobs:
         python-version: 3.8
 
     - name: Test Chalice Project
+      uses: jayef0/chalice-extended-action@release-v0.2.1
       run: chalice test
 #    - name: Install Dependencies
 #      run: |
